@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENI KELECHI ALEXANDER | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #030712;
+            --card-bg: rgba(30, 41, 59, 0.3);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent: #38bdf8;
+            --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
+        }
+
+        #codeCanvas {
+            position: fixed;
+            top: 0; right: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%);
+            opacity: 0.2;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            position: sticky;
+            top: 0;
+            background: rgba(3, 7, 18, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 100;
+        }
+
+        .logo { font-weight: 700; font-size: 1.1rem; letter-spacing: 1px; }
+        .logo span { color: var(--accent); font-weight: 300; }
+
+        header {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+        }
+
+        h1 { 
+            font-size: clamp(2.5rem, 7vw, 4rem); 
+            margin-bottom: 1rem; 
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            width: fit-content;
+            transition: var(--transition);
+        }
+
+        .btn:hover { 
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+        }
+
+        /* --- About Section --- */
+        #about {
+            padding: 6rem 10%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 { color: var(--accent); margin-bottom: 1.5rem; }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        /* --- Work Section --- */
+        #work { padding: 8rem 10%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-12px);
+            background: rgba(30, 41, 59, 0.5);
+        }
+
+        footer { text-align: center; padding: 4rem; opacity: 0.4; font-size: 0.8rem; }
+
+        @media (max-width: 900px) {
+            #about { grid-template-columns: 1fr; gap: 2rem; }
+            nav, header, #about, #work { padding: 2rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="codeCanvas"></canvas>
+
+    <nav>
+        <div class="logo">ENI KELECHI <span>ALEXANDER</span></div>
+        <ul>
+            <li><a href="#about" style="text-decoration: none; color: white; margin-right: 20px;">About</a></li>
+            <li><a href="#work" style="text-decoration: none; color: white;">Work</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <p style="color: var(--accent); margin-bottom: 0.5rem; font-weight: 700; font-size: 0.8rem; letter-spacing: 4px;">MY PORTFOLIO</p>
+        <h1>ENI KELECHI ALEXANDER.</h1>
+        <p style="color: var(--text-dim); max-width: 500px; margin-bottom: 2rem;">Frontend Developer & Tech Enthusiast based in Nigeria. I specialize in building digital products with exceptional user experiences.</p>
+        <a href="#work" class="btn">View Projects</a>
+    </header>
+
+    <section id="about">
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p style="color: var(--text-dim); margin-bottom: 1rem;">
+                I'm a developer who loves the intersection of design and code. My goal is to create web applications that are not only functional but also visually striking.
+            </p>
+            <p style="color: var(--text-dim);">
+                Over the years, I've honed my skills in modern web technologies, always staying curious about the next big thing in the tech world.
+            </p>
+        </div>
+        <div class="skills-box">
+            <p style="margin-bottom: 1rem; font-weight: 700; font-size: 0.8rem; letter-spacing: 2px;">TECHNICAL STACK</p>
+            <div class="skills-grid">
+                <div class="skill-item">HTML / CSS</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">React.js</div>
+                <div class="skill-item">UI Design</div>
+                <div class="skill-item">Git / GitHub</div>
+                <div class="skill-item">Responsive Web</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <h2 style="margin-bottom: 3rem;">Selected Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>System Architecture</h3>
+                <p>Developing scalable frontend structures that handle data with precision.</p>
+            </div>
+            <div class="card">
+                <h3>UI/UX Design</h3>
+                <p>Creating immersive interfaces using modern CSS and animation libraries.</p>
+            </div>
+            <div class="card">
+                <h3>Performance</h3>
+                <p>Optimizing web vitals to ensure lightning-fast interaction speeds.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ENI KELECHI ALEXANDER</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('codeCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const characters = "01"; 
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = "rgba(3, 7, 18, 0.1)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#38bdf8";
+            ctx.font = fontSize + "px monospace";
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 40);
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
